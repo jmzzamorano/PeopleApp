@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  people
+
+  Created by Javier Martinez Zamorano on 13/9/22.
+  
+*/
+"header_title" = "People App";
+"users_not_available" = "The user list is not available";
+"users_list_empty" = "There are no users added to the list yet";
+"mentor" = "Mentor";
+"mentee" = "Mentee";
+"description_0" = "I love mobile programming, going out for drinks with my friends, and taking the dog out in the evenings.";
+"description_1" = "I like to go some weekends to watch car races at the circuit, walk with my children and, in my free time, I usually paint pictures";
+"description_2" = "I am passionate about technology and building things from scratch and then seeing the results. I am a very restless person who is always learning things so as not to get bored.";
+"description_3" = "In addition to programming, I am a teacher at a boxing gym and occasionally stream on Twitch when I play with my friends.";
+"description_4" = "I try to read whenever I can, I love it, except when I meet my friends to go out for beers or watch a movie.";
+"description_5" = "I develop for mobile devices during my working day and when I finish I usually program in Unity so that one day I can build my own video games";
+"description_6" = "I've been working as a lawyer all my life but now I've wanted to change my life and I'm learning to program.";
+"description_7" = "After many years of programming every day I am clearer that the SOLID principles do not exist, they are the parents.";
+"description_8" = "I have a lot of interest in everything related to cyber security and encryption algorithms.";
+"description_9" = "I'm just starting out in the world of programming, and the more time passes, the more I realize that I still have many things to learn.";
+"adduser_title" = "New User";
+"adduser_birthdate" = "Birthdate";
+"adduser_name" = "Name";
+"addUser_save" = "Save";

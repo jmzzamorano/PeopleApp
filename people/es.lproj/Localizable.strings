@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  people
+
+  Created by Javier Martinez Zamorano on 13/9/22.
+  
+*/
+"header_title" = "Personas App";
+"users_not_available" = "La lista de usuarios no está disponible en estos momentos";
+"user_list_empty" = "Aún no se ha añadido ningún usuario";
+"mentor" = "Mentor";
+"mentee" = "Mentorizado";
+"description_0" = "Me encanta la programación de dispositivos móviles, salir a tomar algo con mis amigos y sacar al perro por las tardes.";
+"description_1" = "Me gusta ir algunos fines de semana a ver carreras de coches al circuito, pasear con mis hijos y, en mis ratos libres, suelo pintar cuadros";
+"description_2" = "Me apasiona la técnología y construir cosas desde cero para luego ver los resultados. Soy una persona muy inquieta que siempre está aprendiendo cosas para no aburrirse.";
+"description_3" = "Además de programar, soy profesor en un gimnasio de boxeo y, de vez en cuando, hago streamings en Twitch cuando juego con mis amigos";
+"description_4" = "Intento leer siempre que puedo, me encanta, salvo cuando quedo con mis amigas para salir a tomar cervezas o ver alguna peli.";
+"description_5" = "Programo para dispositivos móviles durante mi jornada laboral y cuando termino suelo programar en Unity para algún día poder construir mis propios vídeo juegos";
+"description_6" = "Llevo toda la vida trabajando como abogado pero ahora he querido dar un cambio a mi vida y estoy aprendiendo a programar.";
+"description_7" = "Después de muchos años programando cada día tengo más claro que los principios SOLID no existen, son los padres.";
+"description_8" = "Tengo mucho interés en todo lo relacionado con la ciber seguridad y los algoritmos de cifrado.";
+"description_9" = "Estoy empezando en el mundo de la programación y, mientras más tiempo pasa, más me doy cuenta de que me quedan muchos cosas por aprender.";
+"adduser_title" = "Nuevo Usuario";
+"adduser_birthdate" = "Fecha de Nacimiento";
+"adduser_name" = "Nombre";
+"addUser_save" = "Guardar";

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddUserViewController" customModule="people" customModuleProvider="target">
+            <connections>
+                <outlet property="birthdateTitleView" destination="rwb-gv-f0h" id="tsP-Yb-vjX"/>
+                <outlet property="headerTitleView" destination="5j7-sc-PYB" id="IPU-5g-6v7"/>
+                <outlet property="nameTitleView" destination="HVx-Ij-ECv" id="QYA-HN-elN"/>
+                <outlet property="saveUserButton" destination="FnX-yW-pOr" id="TZn-Yf-d8k"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-JF-Oqm" userLabel="HeaderView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5j7-sc-PYB" userLabel="HeaderTitleView">
+                            <rect key="frame" x="20" y="28.5" width="374" height="43"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="5j7-sc-PYB" firstAttribute="leading" secondItem="Nl3-JF-Oqm" secondAttribute="leading" constant="20" id="3bC-lr-cmm"/>
+                        <constraint firstAttribute="trailing" secondItem="5j7-sc-PYB" secondAttribute="trailing" constant="20" id="9In-Is-itg"/>
+                        <constraint firstAttribute="height" constant="100" id="mGd-9S-kFZ"/>
+                        <constraint firstItem="5j7-sc-PYB" firstAttribute="centerY" secondItem="Nl3-JF-Oqm" secondAttribute="centerY" id="sZ5-Dm-Hqn"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVx-Ij-ECv" userLabel="NameTitleView">
+                    <rect key="frame" x="20" y="140" width="374" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QpX-rx-22Q" userLabel="NameTextFieldView">
+                    <rect key="frame" x="20" y="180" width="374" height="34"/>
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthdate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwb-gv-f0h" userLabel="DateView">
+                    <rect key="frame" x="20" y="244" width="374" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnX-yW-pOr">
+                    <rect key="frame" x="20" y="685.5" width="374" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="9bb-hI-XBS"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Guardar">
+                        <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
+                    </buttonConfiguration>
+                </button>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="qMd-YN-4Mu" userLabel="DatePicker">
+                    <rect key="frame" x="20" y="284" width="374" height="352"/>
+                </datePicker>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HVx-Ij-ECv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3lF-If-A0F"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rwb-gv-f0h" secondAttribute="trailing" constant="20" id="APL-rV-JJn"/>
+                <constraint firstItem="rwb-gv-f0h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="DDw-Pg-OtZ"/>
+                <constraint firstItem="FnX-yW-pOr" firstAttribute="top" secondItem="qMd-YN-4Mu" secondAttribute="bottom" constant="50" id="EMz-RG-HdN"/>
+                <constraint firstAttribute="trailing" secondItem="qMd-YN-4Mu" secondAttribute="trailing" constant="20" id="Gm2-4d-F1a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QpX-rx-22Q" secondAttribute="trailing" constant="20" id="HQ3-uK-cWO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FnX-yW-pOr" secondAttribute="trailing" constant="20" id="RUE-zY-Evg"/>
+                <constraint firstItem="rwb-gv-f0h" firstAttribute="top" secondItem="QpX-rx-22Q" secondAttribute="bottom" constant="30" id="TgJ-rh-6Ba"/>
+                <constraint firstItem="qMd-YN-4Mu" firstAttribute="top" secondItem="rwb-gv-f0h" secondAttribute="bottom" constant="16" id="WTf-jX-8w6"/>
+                <constraint firstItem="QpX-rx-22Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="X5F-qe-doK"/>
+                <constraint firstItem="HVx-Ij-ECv" firstAttribute="top" secondItem="Nl3-JF-Oqm" secondAttribute="bottom" constant="40" id="XyG-LK-cXf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HVx-Ij-ECv" secondAttribute="trailing" constant="20" id="YlP-wQ-u6H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Nl3-JF-Oqm" secondAttribute="trailing" id="Yxw-nC-Ldj"/>
+                <constraint firstItem="Nl3-JF-Oqm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gVf-HJ-R83"/>
+                <constraint firstItem="Nl3-JF-Oqm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jCn-fu-wY6"/>
+                <constraint firstItem="QpX-rx-22Q" firstAttribute="top" secondItem="HVx-Ij-ECv" secondAttribute="bottom" constant="16" id="lz8-b1-92t"/>
+                <constraint firstItem="qMd-YN-4Mu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qod-gd-OwM"/>
+                <constraint firstItem="FnX-yW-pOr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rMs-cV-7vL"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="132"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
