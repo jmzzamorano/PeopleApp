@@ -1,14 +1,8 @@
-//
-//  UserJsonParser.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import Foundation
 import SwiftyJSON
 
-class UserJsonParser {
+final class UserJsonParser {
     func parse(json: String) -> [User] {
         let users = JSON(parseJSON: json)
         
@@ -23,25 +17,23 @@ class UserJsonParser {
     }
     
     private func byValidUser(item: JSON) -> Bool {
-        return isValidId(item) && isValidDate(item) && isValidName(item)
+        return isValidId(item)
     }
     
     private func isValidId(_ item: JSON) -> Bool {
         return item["id"].exists() && item["id"].int != nil
     }
     
-    private func isValidName(_ item: JSON) -> Bool {
-        return item["name"].exists() && item["name"].string != nil
-    }
-    
-    private func isValidDate(_ item: JSON) -> Bool {
-        return item["birthdate"].exists() && item["birthdate"].string != nil
-    }
-    
     private func buildUser(_ item: JSON) -> User {
         return User(
             id: item["id"].int ?? 0,
             name: item["name"].string ?? "unknown",
-            birthdate: item["birthdate"].string ?? "unknown")
+            birthdate: item["birthdate"].string ?? "unknown",
+            type: item["type"].string ?? "",
+            title: item["title"].string,
+            subtitle: item["subtitle"].string,
+            description: item["description"].string,
+            date: item["date"].string
+        )
     }
 }

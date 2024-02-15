@@ -1,10 +1,4 @@
-/* 
-  Localizable.strings
-  people
 
-  Created by Javier Martinez Zamorano on 13/9/22.
-  
-*/
 "header_title" = "Personas App";
 "users_not_available" = "La lista de usuarios no está disponible en estos momentos";
 "user_list_empty" = "Aún no se ha añadido ningún usuario";
@@ -24,3 +18,11 @@
 "adduser_birthdate" = "Fecha de Nacimiento";
 "adduser_name" = "Nombre";
 "addUser_save" = "Guardar";
+"adduser_alert" = "Es un Controller de ejemplo que no tiene funcionalidad de guardado";
+"banner_title" = "ACTUALIDAD!";
+"banner_date" = "ahora";
+"banner_subtitle" = "Nuevos empleados";
+"banner_description" = "Hay descripciones de nuevos empleados disponibles";
+"date_cell_title_1" = "Hace 2 días";
+"date_cell_title_2" = "Hace 5 días";
+"date_cell_title_3" = "Hace 1 mes";

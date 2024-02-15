@@ -1,9 +1,3 @@
-//
-//  peopleTests.swift
-//  peopleTests
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import XCTest
 @testable import people
@@ -84,42 +78,6 @@ class UserJsonParserTest: XCTestCase {
     
     func test_shouldReturn_oneUser_fromTwo_whenIdField_IsNotInteger() {
         let json = getStringData(file: "test_userparser_wrongidtype")
-        
-        let parser = UserJsonParser()
-        let users: [User] = parser.parse(json: json)
-        
-        XCTAssertEqual(users.count, 1)
-    }
-
-    func test_shouldReturn_oneUser_fromTwo_whenOneOfThem_doesNotHave_Name() {
-        let json = getStringData(file: "test_userparser_missingname")
-        
-        let parser = UserJsonParser()
-        let users: [User] = parser.parse(json: json)
-        
-        XCTAssertEqual(users.count, 1)
-    }
-
-    func test_shouldReturn_oneUser_fromTwo_whenNameField_IsNotString() {
-        let json = getStringData(file: "test_userparser_wrongtypename")
-        
-        let parser = UserJsonParser()
-        let users: [User] = parser.parse(json: json)
-        
-        XCTAssertEqual(users.count, 1)
-    }
-
-    func test_shouldReturn_oneUser_fromTwo_whenOneOfThem_doesNotHave_Date() {
-        let json = getStringData(file: "test_userparser_missingdate")
-        
-        let parser = UserJsonParser()
-        let users: [User] = parser.parse(json: json)
-        
-        XCTAssertEqual(users.count, 1)
-    }
-
-    func test_shouldReturn_oneUser_fromTwo_whenDateField_IsNotString() {
-        let json = getStringData(file: "test_userparser_wrongtypedate")
         
         let parser = UserJsonParser()
         let users: [User] = parser.parse(json: json)

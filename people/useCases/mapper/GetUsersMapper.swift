@@ -1,28 +1,35 @@
-//
-//  GetUsersMapper.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 15/9/22.
-//
 
 import Foundation
 
-class GetUsersMapper: UsersMapper {
-    func map(_ users: [User]) -> [UserItem] {
+final class GetUsersMapper: UsersMapper {
+    func map(_ users: [User]) -> [DashboardItem] {
         return users.enumerated().map {(index, item) in
             mapUser(item, index: index)
         }
     }
     
-    private func mapUser(_ user: User, index: Int) -> UserItem {
-        return UserItem(
-            id: user.id,
-            name: user.name,
-            title: getTeamTitle(index),
-            birthdate: getBirthdate(user.birthdate),
-            description: getDescription(index),
-            image: getProfileImage(index)
-        )
+    private func mapUser(_ user: User, index: Int) -> DashboardItem {
+        switch user.type {
+        case "banner":
+            return BannerItem(
+                title: user.title ?? "banner_title".localized,
+                subtitle: user.subtitle ?? "banner_subtitle".localized,
+                description: user.description ?? "banner_description".localized,
+                date: user.date ?? "banner_date".localized
+            )
+        case "date":
+            return DateItem(timeAgo: user.date ?? "date_cell_title_2".localized)
+            
+        default:
+            return EmployeeItem(
+                id: user.id,
+                name: user.name ?? "Employee",
+                title: getTeamTitle(index),
+                birthdate: getBirthdate(user.birthdate ?? ""),
+                description: getDescription(index),
+                image: getProfileImage(index)
+            )
+        }
     }
     
     private func getTeamTitle(_ index: Int) -> TeamTitle {

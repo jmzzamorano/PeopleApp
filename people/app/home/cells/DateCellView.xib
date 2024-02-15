@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DateCellView" customModule="people" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="439" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="439" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7n-6v-etd" userLabel="ContentView">
+                        <rect key="frame" x="0.0" y="0.0" width="439" height="70"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k84-EX-XsO" userLabel="LineView">
+                                <rect key="frame" x="20" y="34.666666666666664" width="323" height="1"/>
+                                <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="EBI-rK-DbZ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 days ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVd-vK-QIj" userLabel="TitleView">
+                                <rect key="frame" x="353" y="27.333333333333332" width="66" height="15.666666666666668"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CVd-vK-QIj" firstAttribute="centerY" secondItem="Z7n-6v-etd" secondAttribute="centerY" id="DV8-sW-Qmy"/>
+                            <constraint firstAttribute="trailing" secondItem="CVd-vK-QIj" secondAttribute="trailing" constant="20" id="GEQ-g1-uUz"/>
+                            <constraint firstItem="CVd-vK-QIj" firstAttribute="leading" secondItem="k84-EX-XsO" secondAttribute="trailing" constant="10" id="W2O-ZE-9kn"/>
+                            <constraint firstItem="k84-EX-XsO" firstAttribute="centerY" secondItem="Z7n-6v-etd" secondAttribute="centerY" id="cza-CV-etd"/>
+                            <constraint firstItem="k84-EX-XsO" firstAttribute="leading" secondItem="Z7n-6v-etd" secondAttribute="leading" constant="20" id="na6-mu-jmJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="top" secondItem="Z7n-6v-etd" secondAttribute="top" id="GKf-UM-0td"/>
+                <constraint firstAttribute="trailing" secondItem="Z7n-6v-etd" secondAttribute="trailing" id="SEG-kM-2NO"/>
+                <constraint firstItem="Z7n-6v-etd" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="VwL-SJ-O3L"/>
+                <constraint firstItem="Z7n-6v-etd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lms-CR-4Vy"/>
+            </constraints>
+            <size key="customSize" width="439" height="70"/>
+            <connections>
+                <outlet property="titleView" destination="CVd-vK-QIj" id="1tF-JB-gN8"/>
+            </connections>
+            <point key="canvasLocation" x="409.92366412213738" y="-4.2253521126760569"/>
+        </collectionViewCell>
+    </objects>
+</document>

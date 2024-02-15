@@ -1,9 +1,3 @@
-//
-//  FakeData.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 15/9/22.
-//
 
 import Foundation
 

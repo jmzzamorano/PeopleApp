@@ -1,23 +1,17 @@
-//
-//  DetailViewController.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 17/9/22.
-//
 
 import UIKit
 import Kingfisher
 
-class DetailViewController: UIViewController {
-    var user: UserItem!
+final class DetailViewController: UIViewController {
+    var user: DashboardItem?
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var shadowImageView: UIView!
-    @IBOutlet weak var nameTitleView: UILabel!
-    @IBOutlet weak var teamTitleView: UILabel!
-    @IBOutlet weak var descriptionTitleView: UILabel!
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var shadowImageView: UIView!
+    @IBOutlet private weak var nameTitleView: UILabel!
+    @IBOutlet private weak var teamTitleView: UILabel!
+    @IBOutlet private weak var descriptionTitleView: UILabel!
     
-    public static func getController(forUser user: UserItem) -> DetailViewController {
+    public static func getController(forUser user: DashboardItem) -> DetailViewController {
         let controller = DetailViewController.init(
             nibName: String(describing: DetailViewController.self),
             bundle: Bundle(for: DetailViewController.self)
@@ -33,7 +27,11 @@ class DetailViewController: UIViewController {
     }
     
     private func customizeViews() {
-        let imageUrl = URL(string: user.image)
+        guard let employee = user as? EmployeeItem else {
+            return
+        }
+        
+        let imageUrl = URL(string: employee.image)
         profileImageView.kf.setImage(with: imageUrl, options: [
             .transition(ImageTransition.fade(0.3)),
             .forceTransition,
@@ -47,8 +45,8 @@ class DetailViewController: UIViewController {
         gradient.locations = [0.0, 0.7]
         shadowImageView.layer.insertSublayer(gradient, at: 0)
         
-        nameTitleView.text = user.name
-        teamTitleView.text = "Team Rol / " + user.title.description
-        descriptionTitleView.text = user.description
+        nameTitleView.text = employee.name
+        teamTitleView.text = "Team Rol / " + employee.title.description
+        descriptionTitleView.text = employee.description
     }
 }

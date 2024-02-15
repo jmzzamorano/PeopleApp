@@ -1,40 +1,26 @@
-//
-//  GetUsersFromNetwork.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import Foundation
 import RxSwift
-import RxCocoa
 
-class GetUsersFromNetwork: GetUsers {
-    let users = PublishSubject<[UserItem]>()
-    let disposeBag = DisposeBag()
-    let userRepository: UserRepository
-    let mapper: UsersMapper
+final class GetUsersFromNetwork: GetUsers {
+    private let disposeBag = DisposeBag()
+    private let userRepository: UserRepository
+    private let mapper: UsersMapper
     
     init(userRepository: UserRepository, mapper: UsersMapper) {
         self.userRepository = userRepository
         self.mapper = mapper
     }
     
-    func execute() {
-        userRepository.requestUsers()
-            .subscribe(onSuccess: onSuccess, onFailure: onFailure, onDisposed: onDisposed)
-            .disposed(by: disposeBag)
-    }
-    
-    private func onSuccess(data: [User]) {
-        users.onNext(mapper.map(data))
-    }
-    
-    private func onFailure(error: Error) {
-        users.onError(error)
-    }
-    
-    private func onDisposed() {
-        // Do nothing
+    func execute() -> Single<[DashboardItem]> {
+        return userRepository
+            .execute()
+            .map {[weak self] users in
+                guard let self = self else {
+                    return []
+                }
+                
+                return self.mapper.map(users)
+            }
     }
 }

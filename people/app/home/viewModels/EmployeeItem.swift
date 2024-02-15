@@ -1,9 +1,3 @@
-//
-//  UserItem.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 15/9/22.
-//
 
 import Foundation
 
@@ -22,8 +16,9 @@ enum TeamTitle {
     }
 }
 
-struct UserItem {
+struct EmployeeItem: DashboardItem {
     let id: Int
+    var type: DashboardCellType = .medium
     let name: String
     let title: TeamTitle
     let birthdate: Date

@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import UIKit
 
@@ -20,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let navController = UINavigationController()
-        let mainController = DashboardViewController()
+        let mainController = DashboardViewConfigurator().controller()
         navController.viewControllers = [mainController]
         window.rootViewController = navController
         self.window = window

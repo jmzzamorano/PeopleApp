@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,30 +27,40 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qb0-uG-cXp" userLabel="HeaderContainerView">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF2-iT-Nbd" userLabel="HeaderTitleView">
-                            <rect key="frame" x="167.5" y="101.5" width="79" height="37"/>
+                            <rect key="frame" x="167.5" y="71.5" width="79" height="37"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-sL-Ipg">
+                            <rect key="frame" x="0.0" y="136" width="414" height="4"/>
+                            <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="4" id="KCA-ZV-Rod"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="YF2-iT-Nbd" firstAttribute="centerY" secondItem="Qb0-uG-cXp" secondAttribute="centerY" constant="20" id="K6k-39-mvu"/>
-                        <constraint firstAttribute="height" constant="200" id="h1L-sC-Okb"/>
+                        <constraint firstAttribute="bottom" secondItem="yMC-sL-Ipg" secondAttribute="bottom" id="Ltz-Kd-3qG"/>
+                        <constraint firstAttribute="trailing" secondItem="yMC-sL-Ipg" secondAttribute="trailing" id="fXj-Ih-65A"/>
+                        <constraint firstAttribute="height" constant="140" id="h1L-sC-Okb"/>
+                        <constraint firstItem="yMC-sL-Ipg" firstAttribute="leading" secondItem="Qb0-uG-cXp" secondAttribute="leading" id="vbs-A9-5pS"/>
                         <constraint firstItem="YF2-iT-Nbd" firstAttribute="centerX" secondItem="Qb0-uG-cXp" secondAttribute="centerX" id="xNi-g1-z0j"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7Ue-zk-RJB">
-                    <rect key="frame" x="0.0" y="200" width="414" height="696"/>
+                    <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pMt-yH-BJR">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="pMt-yH-BJR">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="16" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="R83-Uk-gAs"/>
@@ -57,13 +68,13 @@
                     </connections>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3M-ZF-Vu3" userLabel="ErrorContainerView">
-                    <rect key="frame" x="0.0" y="200" width="414" height="662"/>
+                    <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ixu-G0-aeW" userLabel="ErrorImageView">
-                            <rect key="frame" x="40" y="0.0" width="354" height="462"/>
+                            <rect key="frame" x="40" y="0.0" width="354" height="522"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-Kg-cWW" userLabel="ErrorTitleView">
-                            <rect key="frame" x="20" y="368" width="374" height="26.5"/>
+                            <rect key="frame" x="20" y="398" width="374" height="26.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                             <color key="textColor" red="0.83875375859106527" green="0.83875375859106527" blue="0.83875375859106527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -82,10 +93,10 @@
                     </constraints>
                 </view>
                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-c9-1mt" userLabel="LoadingContainerView">
-                    <rect key="frame" x="0.0" y="200" width="414" height="662"/>
+                    <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PXX-04-S3g" userLabel="LoadingView">
-                            <rect key="frame" x="197" y="321" width="20" height="20"/>
+                            <rect key="frame" x="197" y="351" width="20" height="20"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,10 +106,10 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbz-ok-nNh" userLabel="AddButtonView">
-                    <rect key="frame" x="304" y="772" width="70" height="70"/>
+                    <rect key="frame" x="314" y="782" width="60" height="60"/>
                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="70" id="083-1X-E39"/>
+                        <constraint firstAttribute="width" constant="60" id="083-1X-E39"/>
                         <constraint firstAttribute="width" secondItem="Qbz-ok-nNh" secondAttribute="height" multiplier="1:1" id="uV2-oP-oru"/>
                     </constraints>
                     <state key="normal" title="Button"/>
@@ -135,7 +146,7 @@
         <image name="error_placeholder" width="407" height="250"/>
         <image name="plus" width="20" height="20"/>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

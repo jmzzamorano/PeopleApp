@@ -1,56 +1,37 @@
-//
-//  MediumCellView.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import UIKit
 import Kingfisher
 
-class MediumCellView: UICollectionViewCell {
-    static let reuseId = "medium_cell"
-    static let height = 168.0
+final class MediumCellView: UICollectionViewCell, MainBaseCellView {
+    var reuseId: String = "medium_cell"
+    var nibName: String = String(describing: MediumCellView.self)
     
-    @IBOutlet weak var titleView: UILabel!
-    @IBOutlet weak var teamTitleView: UILabel!
-    @IBOutlet weak var descriptionTitleView: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var backgroundContainerView: UIView!
-    @IBOutlet weak var profileHolderView: UIView!
+    @IBOutlet private weak var titleView: UILabel!
+    @IBOutlet private weak var teamTitleView: UILabel!
+    @IBOutlet private weak var descriptionTitleView: UILabel!
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var backgroundContainerView: UIView!
+    @IBOutlet private weak var profileHolderView: UIView!
     
-    static func registerForCollectionView(collectionView: UICollectionView) {
-        let nibName = String(describing: self)
-        
-        var nib: UINib?
-        nib = UINib.init(nibName: nibName, bundle: nil)
-        
-        collectionView.register(nib, forCellWithReuseIdentifier: reuseId)
-    }
-    
-    static func dequeueCell(collectionView: UICollectionView, indexPath: IndexPath) -> MediumCellView? {
-        return collectionView.dequeueReusableCell(
-            withReuseIdentifier: reuseId,
-            for: indexPath
-        ) as? MediumCellView
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    func bind(user: UserItem?) {
-        guard let user = user else {
+    func bind(item: DashboardItem) {
+        guard let employee = item as? EmployeeItem else {
             return
         }
         
-        customizeUserInfo(user: user)
+        customizeUserInfo(user: employee)
         customizeBackgroundPlaceHolder()
-        customizeProfileImage(image: user.image)
+        customizeProfileImage(image: employee.image)
         customizeBackgroundContainer()
     }
     
-    private func customizeUserInfo(user: UserItem) {
+    func size(parent: UIView) -> CGSize {
+        let width = parent.frame.width
+        let height = 160.0
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    private func customizeUserInfo(user: EmployeeItem) {
         titleView.text = user.name
         teamTitleView.text = user.title.description
         descriptionTitleView.text = user.description

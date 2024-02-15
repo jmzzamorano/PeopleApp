@@ -1,10 +1,4 @@
-/* 
-  Localizable.strings
-  people
 
-  Created by Javier Martinez Zamorano on 13/9/22.
-  
-*/
 "header_title" = "People App";
 "users_not_available" = "The user list is not available";
 "users_list_empty" = "There are no users added to the list yet";
@@ -24,3 +18,11 @@
 "adduser_birthdate" = "Birthdate";
 "adduser_name" = "Name";
 "addUser_save" = "Save";
+"adduser_alert" = "This is a sample controller that does not have save functionality";
+"banner_title" = "NEWS!";
+"banner_date" = "now";
+"banner_subtitle" = "Employees update";
+"banner_description" = "There are new employees description availables";
+"date_cell_title_1" = "2 days ago";
+"date_cell_title_2" = "5 days ago";
+"date_cell_title_3" = "1 month ago";

@@ -1,28 +1,23 @@
-//
-//  DashboardViewController.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 17/9/22.
-//
 
 import UIKit
 
-class DashboardViewController: UIViewController, DashboardScreen {
-    let presenter = AppConfig.shared.container?.resolve(DashboardPresenter.self)
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var headerTitleView: UILabel!
-    @IBOutlet weak var loadingView: UIActivityIndicatorView!
-    @IBOutlet weak var errorView: UIView!
-    @IBOutlet weak var errorTitleView: UILabel!
-    @IBOutlet weak var addButtonView: UIButton!
+final class DashboardViewController: UIViewController, DashboardScreen {
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var headerTitleView: UILabel!
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var errorView: UIView!
+    @IBOutlet private weak var errorTitleView: UILabel!
+    @IBOutlet private weak var addButtonView: UIButton!
+    
+    var presenter: DashboardPresenter?
+    var cellFactory: DashboardCellFactory?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.bind(screen: self, navigator: self)
+        presenter?.bind()
     }
     
-    func showUsers(users: [UserItem]) {
+    func showUsers(users: [DashboardItem]) {
         collectionView.reloadData()
     }
     
@@ -36,7 +31,7 @@ class DashboardViewController: UIViewController, DashboardScreen {
     }
     
     func showLoading(_ isLoading: Bool) {
-        if (isLoading) {
+        if isLoading {
             loadingView.startAnimating()
             loadingView.isHidden = false
         } else {
@@ -65,68 +60,44 @@ class DashboardViewController: UIViewController, DashboardScreen {
     }
 }
 
-extension DashboardViewController: DashboardScreenNavigator {
-    
-    func navigateToDetailScreen(user: UserItem) {
-        guard let navController = self.navigationController else {
-            return
-        }
-        
-        Navigator.shared.navigateToDetailScreen(navController: navController, user: user)
-    }
-    
-    func navigateToAddUserScreen() {
-        guard let navController = self.navigationController else {
-            return
-        }
-        
-        Navigator.shared.navigateToAddUserScreen(navController: navController)
-    }
-}
-
-
 extension DashboardViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.currentUsers.count ?? 0
+        return presenter?.items.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let user = presenter?.currentUsers[indexPath.row]
+        guard let cellFactory = cellFactory,
+              let user = presenter?.items[indexPath.row] else {
+            return UICollectionViewCell()
+        }
         
-        let cell = MediumCellView.dequeueCell(collectionView: collectionView, indexPath: indexPath)
-        cell?.bind(user: user)
-        
-        return cell!
-    }
-    
-    func registerAvailableCellTypes() {
-        MediumCellView.registerForCollectionView(collectionView: collectionView)
+        return cellFactory.getCellView(
+            for: collectionView,
+            with: user,
+            forItemAt: indexPath
+        )
     }
 }
 
 extension DashboardViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.userPerformsClickOnCell(index: indexPath.row)
     }
 }
 
 extension DashboardViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = collectionView.frame.width
-        return CGSize(width: width, height: MediumCellView.height)
-    }
-}
+        guard let cellFactory = cellFactory,
+              let user = presenter?.items[indexPath.row] else {
+            return CGSize.zero
+        }
 
-extension DashboardViewController {
-    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait
-    }
-    
-    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
-        return UIInterfaceOrientation.portrait
+        return cellFactory.getCellSize(for: collectionView, with: user)
     }
 }

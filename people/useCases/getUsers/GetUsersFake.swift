@@ -1,38 +1,40 @@
-//
-//  GetUsersFake.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import Foundation
 import RxSwift
-import RxCocoa
 
-class GetUsersFake: GetUsers {
-    var users = PublishSubject<[UserItem]>()
-    
-    func execute() {
-        users.onNext(requestUsers(usersCount: 7))
+final class GetUsersFake: GetUsers {    
+    func execute() -> Single<[DashboardItem]> {        
+        return .just(requestUsers(usersCount: 7))
     }
 
-    private func requestUsers(usersCount: Int) -> [UserItem] {
-        var users: [UserItem] = []
+    private func requestUsers(usersCount: Int) -> [DashboardItem] {
+        var items: [DashboardItem] = []
         
         for index in 0...usersCount {
-            let user = UserItem(
-                id: getId(),
-                name: getName(index),
-                title: getTeamTitle(index),
-                birthdate: getBirthdate(),
-                description: getDescription(index),
-                image: getProfileImage(index)
-            )
+            let item: DashboardItem
             
-            users.append(user)
+            if index == 0 {
+                item = BannerItem(
+                    title: "banner_title".localized,
+                    subtitle: "banner_subtitle".localized,
+                    description: "banner_description".localized,
+                    date: "banner_date".localized
+                )
+            } else {
+                item = EmployeeItem(
+                    id: getId(),
+                    name: getName(index),
+                    title: getTeamTitle(index),
+                    birthdate: getBirthdate(),
+                    description: getDescription(index),
+                    image: getProfileImage(index)
+                )
+            }
+            
+            items.append(item)
         }
         
-        return users
+        return items
     }
     
     private func getId() -> Int {

@@ -1,22 +1,16 @@
-//
-//  UserServiceFromNetwork.swift
-//  people
-//
-//  Created by Javier Martinez Zamorano on 11/9/22.
-//
 
 import Foundation
 import RxSwift
 import RxAlamofire
 
-class UserServiceFromNetwork: UserRepository {
+final class UserServiceFromNetwork: UserRepository {
     var parser: UserJsonParser
     
     init(parser: UserJsonParser) {
         self.parser = parser
     }
     
-    func requestUsers() -> Single<[User]> {
+    func execute() -> Single<[User]> {
         let baseUrl = AppConfig.shared.getBaseUrl()
         let url = baseUrl + "/api/User"
 

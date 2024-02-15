@@ -1,0 +1,73 @@
+[
+  {
+    "id": 6807,
+    "type": "banner",
+    "title": "FRESH NEWS!",
+    "subtitle": "New employees",
+    "description": "The new incorporations to the company have arrived",
+    "date": "Today"
+  },
+  {
+    "name": "Laura",
+    "id": 6819
+  },
+  {
+    "id": 6825,
+    "type": "date",
+    "date": "3 days ago"
+  },
+  {
+    "name": "Mateo",
+    "id": 6836
+  },
+  {
+    "name": "Leo",
+    "id": 6839
+  },
+  {
+    "id": 7000,
+    "type": "date",
+    "date": "1 week ago"
+  },
+  {
+    "name": "Daniel",
+    "id": 6886
+  },
+  {
+    "name": "Pablo",
+    "id": 6887
+  },
+  {
+    "name": "Manuel",
+    "id": 6888
+  },
+  {
+    "name": "Álvaro",
+    "id": 6890
+  },
+  {
+    "id": 7001,
+    "type": "date",
+    "date": "2 months ago"
+  },
+  {
+    "name": "David",
+    "id": 6893
+  },
+  {
+    "name": "Mario",
+    "id": 6895
+  },
+  {
+    "name": "Enzo",
+    "id": 6896
+  },
+  {
+    "name": "Diego",
+    "id": 6898
+  },
+  {
+    "name": "Marcos",
+    "id": 6899
+  }
+]
